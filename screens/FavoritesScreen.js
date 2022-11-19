@@ -2,7 +2,7 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {FONTS, SIZES, COLORS} from '../constants';
 
-const ProfilerScreen = ({navigation}) => {
+const FavoritesScreen = ({navigation}) => {
   return (
     <View
       style={{
@@ -11,12 +11,12 @@ const ProfilerScreen = ({navigation}) => {
         flex: 1,
       }}>
       <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <Text style={{...FONTS.h1}}>ProfilerScreen</Text>
+        <Text style={{...FONTS.h1}}>FavoritesScreen</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default ProfilerScreen;
+export default FavoritesScreen;
 
 const styles = StyleSheet.create({});

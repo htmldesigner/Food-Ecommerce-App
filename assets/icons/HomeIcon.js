@@ -1,21 +1,33 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-
-import Svg, {SvgProps, Path} from 'react-native-svg';
+import {Svg, Path} from 'react-native-svg';
 const HomeIcon = props => {
   return (
     <Svg
-      {...props}
-      width={27}
-      height={26}
-      fill={props.color}
-      xmlns="http://www.w3.org/2000/svg">
+      width={25}
+      height={24}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
       <Path
-        d="M12.647.274.568 9.056a1.38 1.38 0 0 0-.503.691c-.09.276-.086.572.008.847.094.274.275.512.517.681.242.17.533.26.831.26h.71v12.399c.001.547.226 1.073.626 1.46.4.388.941.605 1.506.606h18.474c.565 0 1.107-.218 1.506-.606.4-.387.625-.912.625-1.46V11.535h.71c.3 0 .59-.09.832-.26.242-.169.423-.407.517-.681.094-.275.097-.57.008-.847a1.38 1.38 0 0 0-.503-.691L14.352.274a1.458 1.458 0 0 0-1.705 0Zm-1.99 24.348v-6.199h5.685v6.2h-5.684Zm12.79-.688a.68.68 0 0 1-.208.486.723.723 0 0 1-.502.202h-4.974v-6.199c0-.365-.15-.715-.417-.973a1.446 1.446 0 0 0-1.004-.404h-5.684c-.377 0-.738.145-1.004.404a1.358 1.358 0 0 0-.417.973v6.2H4.263a.723.723 0 0 1-.502-.203.68.68 0 0 1-.208-.486V11.535h19.894v12.399ZM1.421 10.158 13.5 1.376l12.079 8.782H1.42Z"
-        fill={props.color}
+        d="M8.5 17.5s1-3 4-3 4 3 4 3"
+        stroke={props.color}
+        strokeWidth={2}
+      />
+      <Path
+        d="M12 22.5h8.5c2 0 1.5 0 2.5-6s-1.068-9.051-5-12c-4-3-4.077-2.604-6-3.5"
+        stroke={props.color}
+        strokeWidth={2}
+      />
+      <Path
+        d="M12.25 22.5h-8.5c-2 0-1.5 0-2.5-6s1.068-9.051 5-12c4-3 4.077-2.604 6-3.5"
+        stroke={props.color}
+        strokeWidth={2}
       />
     </Svg>
   );
 };
 
 export default HomeIcon;
+
+const styles = StyleSheet.create({});

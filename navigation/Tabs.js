@@ -1,14 +1,20 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {DetailScreen, HomeScreen, SettingsScreen} from '../screens';
-import HomeIcon from '../assets/icons/HomeIcon';
-import UserIcon from '../assets/icons/UserIcon';
-import CatalogIcon from '../assets/icons/CatalogIcon';
+
+import {CartScreen, FavoritesScreen, UserScreen, HomeScreen} from '../screens';
+
+import {HeartIcon, UserIcon, CartIcon, HomeIcon} from '../assets/icons';
+import {COLORS} from '../constants';
+
 const Tabs = () => {
   const Tab = createBottomTabNavigator();
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: '#89c80a',
+        tabBarInactiveTintColor: COLORS.lightGray,
+      }}>
       <Tab.Screen
         name="Home"
         component={HomeScreen}
@@ -16,27 +22,42 @@ const Tabs = () => {
           tabBarIcon: ({color, size}) => <HomeIcon color={color} size={size} />,
           tabBarLabel: 'Home',
           tabBarShowLabel: false,
+          headerShown: false,
         }}
       />
 
       <Tab.Screen
-        name="Settings"
-        component={SettingsScreen}
+        name="Cart"
+        component={CartScreen}
+        options={{
+          tabBarIcon: ({color, size}) => <CartIcon color={color} size={size} />,
+          tabBarLabel: 'Cart',
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarBadge: 3,
+        }}
+      />
+
+      <Tab.Screen
+        name="Favorites"
+        component={FavoritesScreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <CatalogIcon color={color} size={size} />
+            <HeartIcon color={color} size={size} />
           ),
-          tabBarLabel: 'Settings',
+          tabBarLabel: 'Favorites',
+          headerShown: false,
           tabBarShowLabel: false,
         }}
       />
 
       <Tab.Screen
-        name="Detail"
-        component={DetailScreen}
+        name="User"
+        component={UserScreen}
         options={{
           tabBarIcon: ({color, size}) => <UserIcon color={color} size={size} />,
-          tabBarLabel: 'Details',
+          tabBarLabel: 'User',
+          headerShown: false,
           tabBarShowLabel: false,
         }}
       />

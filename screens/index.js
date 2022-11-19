@@ -1,6 +1,6 @@
 import HomeScreen from './HomeScreen';
-import SettingsScreen from './SettingsScreen';
-import DetailScreen from './DetailScreen';
-import ProfilerScreen from './ProfilerScreen';
+import UserScreen from './UserScreen';
+import CartScreen from './CartScreen';
+import FavoritesScreen from './FavoritesScreen';
 
-export {HomeScreen, SettingsScreen, DetailScreen, ProfilerScreen};
+export {HomeScreen, UserScreen, CartScreen, FavoritesScreen};
