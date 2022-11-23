@@ -4,8 +4,16 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {CartScreen, FavoritesScreen, UserScreen, HomeScreen} from '../screens';
 
-import {HeartIcon, UserIcon, CartIcon, HomeIcon} from '../assets/icons';
+import {
+  HeartIcon,
+  UserIcon,
+  IconWithBadge,
+  HomeIcon,
+  CartIcon,
+} from '../assets/icons';
 import {COLORS} from '../constants';
+import {useStore} from '../store';
+import {observer} from 'mobx-react-lite';
 
 const Tabs = () => {
   const Tab = createBottomTabNavigator();
@@ -30,11 +38,18 @@ const Tabs = () => {
         name="Cart"
         component={CartScreen}
         options={{
-          tabBarIcon: ({color, size}) => <CartIcon color={color} size={size} />,
+          tabBarIcon: ({color, size}) => (
+            <IconWithBadge
+              icon={CartIcon}
+              color={color}
+              size={size}
+              target="cart" // state
+              computed="cartCount" // getter
+            />
+          ),
           tabBarLabel: 'Cart',
           headerShown: false,
           tabBarShowLabel: false,
-          tabBarBadge: 3,
         }}
       />
 

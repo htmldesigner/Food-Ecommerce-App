@@ -11,13 +11,26 @@ import {
 import React from 'react';
 import {FONTS, SIZES, COLORS} from '../constants';
 import products from '../data';
-import {HeartIcon, UserIcon, CartIcon, HomeIcon} from '../assets/icons';
+import {
+  HeartIcon,
+  UserIcon,
+  CartIcon,
+  HomeIcon,
+  PlusIcon,
+} from '../assets/icons';
 
+import {useStore} from '../store';
 const HomeScreen = ({navigation}) => {
+  let {cart} = useStore();
+
   function renderProducts(item, index) {
     return (
       <TouchableOpacity
-        onPress={() => console.log(item)}
+        onPress={() => {
+          navigation.navigate('Product', {
+            item: item,
+          });
+        }}
         style={{
           flex: 1,
           backgroundColor: COLORS.white,
@@ -53,7 +66,7 @@ const HomeScreen = ({navigation}) => {
             textAlign: 'center',
             color: COLORS.secondary,
             ...FONTS.h2,
-            marginTop: 10,
+            marginTop: 14,
           }}>
           {item.name}
         </Text>
@@ -64,17 +77,21 @@ const HomeScreen = ({navigation}) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             marginHorizontal: 18,
+            marginTop: 6,
           }}>
           <Text style={{color: COLORS.primary, ...FONTS.h2}}>{item.price}</Text>
           <TouchableOpacity
+            onPress={() => cart.addCart(item)}
             style={{
               backgroundColor: COLORS.primary,
-              height: 28,
-              width: 28,
-              borderRadius: 14,
+              height: 26,
+              width: 26,
+              borderRadius: 13,
               alignItems: 'center',
               justifyContent: 'center',
-            }}></TouchableOpacity>
+            }}>
+            <PlusIcon width="14" height="14"></PlusIcon>
+          </TouchableOpacity>
         </View>
       </TouchableOpacity>
     );
