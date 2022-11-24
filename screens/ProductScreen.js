@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import React from 'react';
 import {COLORS, FONTS, SIZES} from '../constants';
-import imeges from '../assets/images';
 import {useStore} from '../store';
+import Bg from '../components/Bg';
 
 const ProductScreen = ({route, navigation}) => {
   const {item} = route.params;
@@ -18,52 +18,71 @@ const ProductScreen = ({route, navigation}) => {
   const {cart} = useStore();
 
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-end'}}>
-      <View
-        style={{
-          backgroundColor: 'orange',
-          height: 400,
-          width: '86%',
-          marginLeft: 40,
-          marginRight: 40,
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-          borderTopLeftRadius: SIZES.radius * 2,
-          borderTopRightRadius: SIZES.radius * 2,
-        }}>
-        <Image
-          source={item.img}
+    <Bg>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-end'}}>
+        <View
           style={{
-            width: '90%',
-            height: '100%',
-            position: 'absolute',
-            top: -205,
-          }}
-          resizeMode="contain"
-        />
-        <View>
-          <Text style={{...FONTS.h3}}>Description</Text>
-          <Text style={{color: COLORS.secondary, ...FONTS.body3}}>
-            {item.description}
-          </Text>
-        </View>
-        <TouchableOpacity
-          onPress={async () => {
-            await cart.addCart(item);
-            navigation.goBack();
-          }}
-          style={{
-            backgroundColor: COLORS.primary,
-            width: '90%',
-            height: 50,
+            backgroundColor: COLORS.white,
+            height: 470,
+            width: 360,
+            marginLeft: 40,
+            marginRight: 40,
             alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 9,
+            justifyContent: 'flex-start',
+            borderTopLeftRadius: SIZES.radius * 2,
+            borderTopRightRadius: SIZES.radius * 2,
           }}>
-          <Text style={{color: COLORS.white, ...FONTS.h3}}>Add to cart</Text>
-        </TouchableOpacity>
+          <Image
+            source={item.img}
+            style={{
+              width: '100%',
+              height: '100%',
+              position: 'absolute',
+              top: -260,
+            }}
+            resizeMode="contain"
+          />
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              width: 326,
+              marginTop: 140,
+              marginBottom: 50,
+            }}>
+            <Text style={{...FONTS.h1}}>{item.name}</Text>
+            <Text style={{color: COLORS.primary, ...FONTS.h1}}>
+              {item.price}
+            </Text>
+          </View>
+          <View style={{width: 326, marginBottom: 50}}>
+            <Text style={{...FONTS.h3}}>Description</Text>
+            <Text style={{color: COLORS.secondary, ...FONTS.body3}}>
+              {item.description}
+            </Text>
+          </View>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={async () => {
+              await cart.addCart(item);
+              navigation.goBack();
+            }}
+            style={{
+              backgroundColor: COLORS.primary,
+              width: 326,
+              height: 50,
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 9,
+              borderWidth: 3,
+              borderColor: '#5cc918',
+            }}>
+            <Text style={{color: COLORS.white, ...FONTS.h3}}>Add to cart</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </Bg>
   );
 };
 

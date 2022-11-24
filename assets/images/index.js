@@ -9,6 +9,7 @@ export const spair = require('./spair.png');
 export const templ = require('./templ.png');
 export const testi = require('./testi.png');
 export const bg = require('./bg.jpg');
+export const big = require('./big.png');
 
 export default {
   alkapo,
@@ -22,4 +23,5 @@ export default {
   templ,
   testi,
   bg,
+  big,
 };

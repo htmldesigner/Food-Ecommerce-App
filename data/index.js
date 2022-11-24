@@ -2,15 +2,16 @@ import images from '../assets/images';
 const products = [
   {
     id: 0,
-    name: 'Burger',
-    img: images.alkapo,
+    name: 'Burger Big',
+    img: images.big,
     type: 'Burger',
-    price: '$186',
+    price: '$182',
     sizes: ['big', 'small', 'middle'],
-    stars: 325,
+    stars: 300,
     description:
-      'Signature 44 medium-sized burger with fresh vegetables and 100% grilled beef. *Supplement the burger with cheese or jalapenos to taste.',
+      'Signature 11 medium-sized burger with fresh vegetables and 100% grilled beef. *Supplement the burger with cheese or jalapenos to taste.',
   },
+
   {
     id: 1,
     name: 'Pizza',
@@ -109,6 +110,17 @@ const products = [
     stars: 300,
     description:
       'Signature 11 medium-sized burger with fresh vegetables and 100% grilled beef. *Supplement the burger with cheese or jalapenos to taste.',
+  },
+  {
+    id: 10,
+    name: 'Burger',
+    img: images.alkapo,
+    type: 'Burger',
+    price: '$186',
+    sizes: ['big', 'small', 'middle'],
+    stars: 325,
+    description:
+      'Signature 44 medium-sized burger with fresh vegetables and 100% grilled beef. *Supplement the burger with cheese or jalapenos to taste.',
   },
 ];
 
