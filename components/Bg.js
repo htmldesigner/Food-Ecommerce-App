@@ -1,13 +1,15 @@
 import {StyleSheet, View, ImageBackground} from 'react-native';
 import React from 'react';
-import images from '../assets/images';
-const Bg = ({children}) => {
+
+const Bg = ({children, overlay, image}) => {
   return (
     <ImageBackground
-      source={images.bg}
+      source={image}
       style={styles.imageBackground}
       resizeMode="cover">
-      <View style={styles.innerContainer}>{children}</View>
+      <View style={{backgroundColor: overlay, ...styles.innerContainer}}>
+        {children}
+      </View>
     </ImageBackground>
   );
 };
@@ -21,6 +23,5 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     flex: 1,
-    backgroundColor: 'rgba(76,168,22, 0.90)',
   },
 });

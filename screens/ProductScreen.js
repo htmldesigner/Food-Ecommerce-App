@@ -11,6 +11,10 @@ import React from 'react';
 import {COLORS, FONTS, SIZES} from '../constants';
 import {useStore} from '../store';
 import Bg from '../components/Bg';
+import images from '../assets/images';
+import {HeartIcon, StarIcon} from '../assets/icons';
+import HeaderContainer from '../components/HeaderContainer';
+import GoBackArrow from '../components/GoBackArrow';
 
 const ProductScreen = ({route, navigation}) => {
   const {item} = route.params;
@@ -18,8 +22,10 @@ const ProductScreen = ({route, navigation}) => {
   const {cart} = useStore();
 
   return (
-    <Bg>
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-end'}}>
+    <Bg image={images.bg} overlay="rgba(76,168,22, 0.90)">
+      <HeaderContainer
+        left={<GoBackArrow />}
+        right={<HeartIcon color="#fff" width="19" height="19" />}>
         <View
           style={{
             backgroundColor: COLORS.white,
@@ -32,6 +38,17 @@ const ProductScreen = ({route, navigation}) => {
             borderTopLeftRadius: SIZES.radius * 2,
             borderTopRightRadius: SIZES.radius * 2,
           }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+              marginTop: 120,
+              width: 326,
+            }}>
+            <StarIcon />
+            <Text>(4/7)</Text>
+          </View>
           <Image
             source={item.img}
             style={{
@@ -48,16 +65,20 @@ const ProductScreen = ({route, navigation}) => {
               alignItems: 'center',
               justifyContent: 'space-between',
               width: 326,
-              marginTop: 140,
-              marginBottom: 50,
+              marginTop: SIZES.padding,
+              marginBottom: SIZES.padding,
             }}>
-            <Text style={{...FONTS.h1}}>{item.name}</Text>
+            <Text style={{color: COLORS.secondary, ...FONTS.h1}}>
+              {item.name}
+            </Text>
             <Text style={{color: COLORS.primary, ...FONTS.h1}}>
               {item.price}
             </Text>
           </View>
-          <View style={{width: 326, marginBottom: 50}}>
-            <Text style={{...FONTS.h3}}>Description</Text>
+          <View style={{width: 326, marginBottom: SIZES.padding}}>
+            <Text style={{color: COLORS.secondary, ...FONTS.h3}}>
+              Description
+            </Text>
             <Text style={{color: COLORS.secondary, ...FONTS.body3}}>
               {item.description}
             </Text>
@@ -69,6 +90,7 @@ const ProductScreen = ({route, navigation}) => {
               navigation.goBack();
             }}
             style={{
+              marginTop: SIZES.padding,
               backgroundColor: COLORS.primary,
               width: 326,
               height: 50,
@@ -81,22 +103,11 @@ const ProductScreen = ({route, navigation}) => {
             <Text style={{color: COLORS.white, ...FONTS.h3}}>Add to cart</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </HeaderContainer>
     </Bg>
   );
 };
 
 export default ProductScreen;
 
-const styles = StyleSheet.create({
-  overlay: {
-    ...StyleSheet.absoluteFillObject,
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    width: SIZES.width,
-    height: SIZES.height,
-    backgroundColor: 'rgba(76,168,21,0.9)',
-  },
-});
+const styles = StyleSheet.create();

@@ -4,5 +4,16 @@ import CartIcon from './CartIcon';
 import HomeIcon from './HomeIcon';
 import PlusIcon from './PlusIcon';
 import IconWithBadge from './IconWithBadge';
+import StarIcon from './StarIcon';
+import ArrowIcon from './ArrowIcon';
 
-export {UserIcon, HeartIcon, CartIcon, HomeIcon, PlusIcon, IconWithBadge};
+export {
+  UserIcon,
+  HeartIcon,
+  CartIcon,
+  HomeIcon,
+  PlusIcon,
+  StarIcon,
+  ArrowIcon,
+  IconWithBadge,
+};
